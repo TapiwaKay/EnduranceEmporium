@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us - Endurance Emporium</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="header-container">
+      <div class="logo-section">
+        <img src="img/logo.jpg" alt="Endurance Emporium Logo" class="logo" />
+        <div class="company-info">
+          <h1>Endurance Emporium</h1>
+          <p>Where endurance meets excellence</p>
+        </div>
+      </div>
+      <div class="signin-section">
+        <a href="signin.html" class="signin-link">Sign In</a>
+      </div>
+    </div>
+  </header>
+
+  <nav>
+    <ul class="nav-left">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="inventory.html">Shop</a></li>
+      <li><a href="reviews.html">Reviews</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="contact.html" >Contact Us</a></li>
+    </ul>
+    <ul class="nav-right">
+      <li>
+        <form action="search.html" class="search-form">
+          <input type="text" name="query" placeholder="Search..." class="search-bar">
+          <button type="submit" class="search-button">🔍</button>
+        </form>
+      </li>
+      <li>
+        <div class="cart-icon-wrapper">
+          <a href="cart.html" class="cart-icon">🛒</a>
+          <span id="cart-notification" class="notification-badge">0</span>
+        </div>
+      </li>
+    </ul>
+  </nav>
+  
+  <script>
+  // Function to update the cart notification across all pages
+  function updateCartNotification() {
+    let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+    document.getElementById('cart-notification').innerText = cartItems.length;
+  }
+
+  // Call the updateCartNotification function on page load
+  window.onload = function() {
+    updateCartNotification();
+  };
+  </script>
+  
+
+  <!-- Main Content -->
+  <main class="contact-center-wrapper">
+    <div class="contact-card">
+      <h2>Contact Us</h2>
+      <p>We'd love to hear from you. Fill out the form below or email us directly.</p>
+
+      <form class="contact-form" action="#" method="post">
+        <label for="name"><i class="fas fa-user"></i> Name</label>
+        <input type="text" id="name" name="name" required />
+
+        <label for="email"><i class="fas fa-envelope"></i> Email</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="message"><i class="fas fa-comment"></i> Message</label>
+        <textarea id="message" name="message" rows="6" required></textarea>
+
+        <button type="submit"><i class="fas fa-paper-plane"></i> Send Message</button>
+        <!-- Delete Button -->
+        <button type="button" class="delete-btn"><i class="fas fa-trash-alt"></i> Delete</button>
+      </form>
+
+      <div class="contact-details">
+        <p><i class="fas fa-envelope"></i> <a href="mailto:support@enduranceemporium.com">support@enduranceemporium.com</a></p>
+        <p><i class="fas fa-phone"></i> +267 (78) 389-325</p> <!-- Phone number -->
+
+        <!-- Social Media Icons with Names -->
+        <div class="social-media">
+          <p><i class="fab fa-instagram"></i> @ EnduranceEmporium</p>
+          <p><i class="fab fa-facebook"></i> @ Endurance Emporium</p>
+          <p><img src="img/twitter-new-x.jpg" alt="X (Twitter) Icon" class="social-icon"> @ EnduranceEmp</p> <!-- X (Twitter) as an image -->
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Endurance Emporium. All rights reserved.</p>
+  </footer>
+
+  <script>
+  // Handle Send Button (Submit the form)
+  document.querySelector('.contact-form button[type="submit"]').addEventListener('click', function(event) {
+    event.preventDefault(); // Prevent the default form submission
+    const form = document.querySelector('.contact-form');
+
+    // Add custom logic here if you want to process the form data (e.g., send to a server)
+    // For now, we'll just simulate form submission success
+    alert("Message sent successfully! We will get back to you soon.");
+    form.reset(); // Clear the form fields after submission
+  });
+
+  // Handle Delete Button (Clear the form)
+  document.querySelector('.contact-form .delete-btn').addEventListener('click', function() {
+    const form = document.querySelector('.contact-form');
+    form.reset(); // Reset all form fields (clear them)
+  });
+</script>
+
+</body>
+</html>
+
+
+
+
+
+

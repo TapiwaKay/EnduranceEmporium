@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Checkout | Endurance Emporium</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="header-container">
+      <div class="logo-section">
+        <img src="img/logo.jpg" alt="Endurance Emporium Logo" class="logo" />
+        <div class="company-info">
+          <h1>Endurance Emporium</h1>
+          <p>Where endurance meets excellence</p>
+        </div>
+      </div>
+      <div class="signin-section">
+        <a href="signin.html" class="signin-link">Sign In</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation -->
+  <nav>
+    <ul class="nav-left">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="inventory.html">Shop</a></li>
+      <li><a href="reviews.html">Reviews</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+    <ul class="nav-right">
+      <li>
+        <form action="search.html" class="search-form">
+          <input type="text" name="query" placeholder="Search..." class="search-bar">
+          <button type="submit" class="search-button">🔍</button>
+        </form>
+      </li>
+      <li>
+        <div class="cart-icon-wrapper">
+          <a href="cart.html" class="cart-icon">🛒</a>
+          <span id="cart-notification" class="notification-badge">0</span>
+        </div>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Checkout Section -->
+  <main class="checkout-container">
+    <h2>Checkout</h2>
+    <div class="checkout-wrapper">
+      <!-- Billing & Payment Form -->
+      <form id="checkout-form" class="billing-form">
+        <h3>Billing Information</h3>
+        <label>Full Name:<input type="text" required></label>
+        <label>Email:<input type="email" required></label>
+        <label>Address:<input type="text" required></label>
+        <label>City:<input type="text" required></label>
+        <label>Postal Code:<input type="text" required></label>
+
+        <h3>Payment Information</h3>
+        <label>Card Number:<input type="text" required maxlength="16" pattern="\d{16}"></label>
+        <label>Expiry Date:<input type="month" required></label>
+        <label>CVV:<input type="text" required maxlength="4" pattern="\d{3,4}"></label>
+
+        <button type="submit" class="place-order-btn">Place Order</button>
+      </form>
+
+      <!-- Order Summary -->
+      <div class="order-summary">
+        <h3>Order Summary</h3>
+        <div id="summary-list"></div>
+        <p><strong>Subtotal:</strong> <span id="subtotal">BWP 0.00</span></p>
+        <p><strong>Shipping (10%):</strong> <span id="shipping">BWP 0.00</span></p>
+        <p><strong>Total:</strong> <span id="total">BWP 0.00</span></p>
+      </div>
+    </div>
+  </main>
+
+  <script>
+    function getMergedCartItems() {
+      const rawCart = JSON.parse(localStorage.getItem("cart")) || [];
+      const merged = {};
+      rawCart.forEach(item => {
+        const key = item.name.trim().toLowerCase();
+        if (merged[key]) {
+          merged[key].quantity += item.quantity || 1;
+        } else {
+          merged[key] = {
+            name: item.name.trim(),
+            price: parseFloat(item.price),
+            quantity: item.quantity || 1
+          };
+        }
+      });
+      return Object.values(merged);
+    }
+
+    function updateSummary() {
+      const summaryList = document.getElementById("summary-list");
+      const subtotalEl = document.getElementById("subtotal");
+      const shippingEl = document.getElementById("shipping");
+      const totalEl = document.getElementById("total");
+
+      const cart = getMergedCartItems();
+      summaryList.innerHTML = '';
+      let subtotal = 0;
+
+      cart.forEach(item => {
+        const line = document.createElement("p");
+        line.textContent = `${item.name} x ${item.quantity} — BWP ${(item.price * item.quantity).toFixed(2)}`;
+        summaryList.appendChild(line);
+        subtotal += item.price * item.quantity;
+      });
+
+      const shipping = subtotal * 0.10;
+      const total = subtotal + shipping;
+
+      subtotalEl.textContent = `BWP ${subtotal.toFixed(2)}`;
+      shippingEl.textContent = `BWP ${shipping.toFixed(2)}`;
+      totalEl.textContent = `BWP ${total.toFixed(2)}`;
+    }
+
+    document.getElementById("checkout-form").addEventListener("submit", function(e) {
+      e.preventDefault();
+      alert("Order placed successfully! Thank you for shopping at Endurance Emporium.");
+      localStorage.removeItem("cart");
+      window.location.href = "index.html";
+    });
+
+    updateSummary();
+</script>
+<footer>
+    <p>&copy; 2025 Endurance Emporium. All rights reserved.</p>
+</footer>
+
+</body>
+</html>

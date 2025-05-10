@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Reviews - Endurance Emporium</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="header-container">
+      <div class="logo-section">
+        <img src="img/logo.jpg" alt="Endurance Emporium Logo" class="logo" />
+        <div class="company-info">
+          <h1>Endurance Emporium</h1>
+          <p>Where endurance meets excellence</p>
+        </div>
+      </div>
+      <div class="signin-section">
+        <a href="signin.html" class="signin-link">Sign In</a>
+      </div>
+    </div>
+  </header>
+
+  <nav>
+    <ul class="nav-left">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="inventory.html">Shop</a></li>
+      <li><a href="reviews.html" class=>Reviews</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+    <ul class="nav-right">
+      <li>
+        <form action="search.html" class="search-form">
+          <input type="text" name="query" placeholder="Search..." class="search-bar">
+          <button type="submit" class="search-button">🔍</button>
+        </form>
+      </li>
+      <li>
+        <div class="cart-icon-wrapper">
+          <a href="cart.html" class="cart-icon">🛒</a>
+          <span id="cart-notification" class="notification-badge">0</span>
+        </div>
+      </li>
+    </ul>
+  </nav>
+
+<script>
+  // Function to update the cart notification across all pages
+  function updateCartNotification() {
+    let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+    document.getElementById('cart-notification').innerText = cartItems.length;
+  }
+
+  // Call the updateCartNotification function on page load
+  window.onload = function() {
+    updateCartNotification();
+  };
+</script>
+    
+  <!-- Main Content -->
+  <main class="reviews-center-wrapper">
+    <h2>Customer Reviews</h2>
+
+    <!-- Equipment -->
+    <div class="category-review">
+      <h3>Equipment</h3>
+
+      <!-- Review for Fusion F10 Starting Block -->
+      <div class="product-review">
+        <h4>Fusion F10 Starting Block</h4>
+        <div class="review">
+          <p><strong>Rating:</strong> ⭐⭐⭐⭐⭐</p>
+          <p>"This starting block provides great stability and helps improve my sprint starts. Highly recommended!"</p>
+          <p><strong>- Alex J.</strong></p>
+        </div>
+        <div class="review">
+          <p><strong>Rating:</strong> ⭐⭐⭐⭐</p>
+          <p>"The design is solid and durable, but I wish it had better grip on indoor tracks."</p>
+          <p><strong>- Emily K.</strong></p>
+        </div>
+      </div>
+
+      <!-- Review for Metis Hurdles -->
+      <div class="product-review">
+        <h4>Metis Adjustable Alloy Hurdles</h4>
+        <div class="review">
+          <p><strong>Rating:</strong> ⭐⭐⭐⭐⭐</p>
+          <p>"These hurdles are perfect for training. They’re adjustable, lightweight, and easy to set up!"</p>
+          <p><strong>- John W.</strong></p>
+        </div>
+        <div class="review">
+          <p><strong>Rating:</strong> ⭐⭐⭐⭐⭐</p>
+          <p>"Great value for the price! Very durable and easy to use for different hurdle heights."</p>
+          <p><strong>- Sara T.</strong></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pre-workouts -->
+    <div class="category-review">
+      <h3>Pre-workouts</h3>
+
+      <div class="product-review">
+        <h4>XTS hyperdrive pre-workout </h4>
+        <div class="review">
+          <p><strong>Rating:</strong> ⭐⭐⭐⭐⭐</p>
+          <p>"This pre-workout gives me a great energy boost before my workouts, and I don’t crash afterwards."</p>
+          <p><strong>- Mark A.</strong></p>
+        </div>
+        <div class="review">
+          <p><strong>Rating:</strong> ⭐⭐⭐⭐</p>
+          <p>"Great for getting through intense workouts, but the taste is a bit too strong for my liking."</p>
+          <p><strong>- Rachel M.</strong></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Creatine -->
+    <div class="category-review">
+      <h3>Creatine</h3>
+
+      <div class="product-review">
+        <h4>Kaged creatine HCL </h4>
+        <div class="review">
+          <p><strong>Rating:</strong> ⭐⭐⭐⭐⭐</p>
+          <p>"Amazing product! It helps me lift heavier and recover faster. A must-have for serious athletes."</p>
+          <p><strong>- Luke B.</strong></p>
+        </div>
+        <div class="review">
+          <p><strong>Rating:</strong> ⭐⭐⭐⭐</p>
+          <p>"Solid creatine, but the mixability could be better."</p>
+          <p><strong>- Chris H.</strong></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Post-Workout -->
+    <div class="category-review">
+      <h3>Post-Workout</h3>
+
+      <div class="product-review">
+        <h4>Usn BCAA 12:1:1 </h4>
+        <div class="review">
+          <p><strong>Rating:</strong> ⭐⭐⭐⭐⭐</p>
+          <p>"Helps my muscles recover after every workout. Love the taste and effectiveness!"</p>
+          <p><strong>- Olivia G.</strong></p>
+        </div>
+        <div class="review">
+          <p><strong>Rating:</strong> ⭐⭐⭐⭐</p>
+          <p>"Good recovery product, but the packaging could be improved for easier use."</p>
+          <p><strong>- Ben L.</strong></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bars and Snacks -->
+    <div class="category-review">
+      <h3>Bars and Snacks</h3>
+
+      <div class="product-review">
+        <h4>Energy Oats Multi-grain bars </h4>
+        <div class="review">
+          <p><strong>Rating:</strong> ⭐⭐⭐⭐⭐</p>
+          <p>"These protein bars are perfect for on-the-go! They taste great and keep me full for hours."</p>
+          <p><strong>- Akhona C.</strong></p>
+        </div>
+        <div class="review">
+          <p><strong>Rating:</strong> ⭐⭐⭐⭐</p>
+          <p>"Very tasty, but a bit too chewy for my liking. Overall, solid snack."</p>
+          <p><strong>- Greg D.</strong></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Drinks -->
+    <div class="category-review">
+      <h3>Drinks</h3>
+
+      <div class="product-review">
+        <h4>Energade sports drink</h4>
+        <div class="review">
+          <p><strong>Rating:</strong> ⭐⭐⭐⭐⭐</p>
+          <p>"Best electrolyte drink I’ve tried! It keeps me hydrated during my long runs."</p>
+          <p><strong>- Ashley F.</strong></p>
+        </div>
+        <div class="review">
+          <p><strong>Rating:</strong> ⭐⭐⭐⭐⭐</p>
+          <p>"Refreshing and helps me stay energized throughout the day!"</p>
+          <p><strong>- Lauren P.</strong></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Spikes -->
+    <div class="category-review">
+      <h3>Spikes</h3>
+
+      <div class="product-review">
+        <h4>Adidas Adizero Prime SP3</h4>
+        <div class="review">
+          <p><strong>Rating:</strong> ⭐⭐⭐⭐⭐</p>
+          <p>"Perfect for short-distance races! Lightweight and very responsive."</p>
+          <p><strong>- Kelebogile T.</strong></p>
+        </div>
+        <div class="review">
+          <p><strong>Rating:</strong> ⭐⭐⭐⭐</p>
+          <p>"Great spikes, but they could use more padding around the ankle area."</p>
+          <p><strong>- William R.</strong></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Running Shoes -->
+    <div class="category-review">
+      <h3>Running Shoes</h3>
+
+      <div class="product-review">
+        <h4>Saucony Peregine 14</h4>
+        <div class="review">
+          <p><strong>Rating:</strong> ⭐⭐⭐⭐⭐</p>
+          <p>"These shoes provide excellent support and comfort for long runs. Highly recommended!"</p>
+          <p><strong>- Rachel W.</strong></p>
+        </div>
+        <div class="review">
+          <p><strong>Rating:</strong> ⭐⭐⭐⭐⭐</p>
+          <p>"I’ve never had a more comfortable pair of running shoes. They’re perfect for cross-country."</p>
+          <p><strong>- Caleb S.</strong></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Women's Apparel -->
+    <div class="category-review">
+      <h3>Women's Apparel</h3>
+
+      <div class="product-review">
+        <h4>Nike Pro Women's leggings</h4>
+        <div class="review">
+          <p><strong>Rating:</strong> ⭐⭐⭐⭐⭐</p>
+          <p>"These leggings are breathable and fit perfectly. Great for workouts!"</p>
+          <p><strong>- BonangL.</strong></p>
+        </div>
+        <div class="review">
+          <p><strong>Rating:</strong> ⭐⭐⭐⭐</p>
+          <p>"Love the fit, but they could be slightly more stretchy."</p>
+          <p><strong>- Khumo D.</strong></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Men's Apparel -->
+    <div class="category-review">
+      <h3>Men's Apparel</h3>
+
+      <div class="product-review">
+        <h4>Nike youth dri-fit miler singlet</h4>
+        <div class="review">
+          <p><strong>Rating:</strong> ⭐⭐⭐⭐⭐</p>
+          <p>"Super comfortable and fits perfectly. I wear it for every training session."</p>
+          <p><strong>- Jake P.</strong></p>
+        </div>
+        <div class="review">
+          <p><strong>Rating:</strong> ⭐⭐⭐⭐</p>
+          <p>"Great material, but I wish it came in more colors."</p>
+          <p><strong>- Matt J.</strong></p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Accessories -->
+    <div class="category-review">
+      <h3>Accessories</h3>
+
+      <div class="product-review">
+        <h4>Water Bottle</h4>
+        <div class="review">
+          <p><strong>Rating:</strong> ⭐⭐⭐⭐⭐</p>
+          <p>"Love this water bottle! Keeps my drink cold all day."</p>
+          <p><strong>- Kate S.</strong></p>
+        </div>
+        <div class="review">
+          <p><strong>Rating:</strong> ⭐⭐⭐</p>
+          <p>"Great design but could be a bit bigger."</p>
+          <p><strong>- Laura M.</strong></p>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Endurance Emporium. All rights reserved.</p>
+  </footer>
+</body>
+</html>

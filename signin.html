@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign In</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header>
+    <div class="header-container">
+      <div class="logo-section">
+        <img src="img/logo.jpg" alt="Endurance Emporium" class="logo">
+        <div class="company-info">
+          <h1>Endurance Emporium</h1>
+          <p>Where endurance meets excellence</p>
+        </div>
+       </div>
+    </div>
+  </header>
+
+  <nav>
+    <ul class="nav-left">
+        <li><a href="index.html">Home</a></li>
+        <li class="dropdown">
+            <a href="inventory.html" class="dropbtn" aria-haspopup="true" aria-expanded="false">Shop ▾</a>
+            <ul class="dropdown-content">
+                <li><a href="inventory.html#equipment">Equipment</a></li>
+                <li><a href="inventory.html#pre-workouts">Pre-workouts</a></li>
+                <li><a href="inventory.html#creatine">Creatine</a></li>
+                <li><a href="inventory.html#post-workout">Post-workout</a></li>
+                <li><a href="inventory.html#barsandsnacks">Bars and Snacks</a></li>
+                <li><a href="inventory.html#drinks">Drinks</a></li>
+                <li><a href="inventory.html#spikes">Spikes</a></li>
+                <li><a href="inventory.html#runningshoes">Running Shoes</a></li>
+                <li><a href="inventory.html#womensapparel">Women's Apparel</a></li>
+                <li><a href="inventory.html#mensapparel">Men's Apparel</a></li>
+                <li><a href="inventory.html#accessories">Accessories</a></li>
+            </ul>
+        </li>
+        <li><a href="reviews.html">Reviews</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+
+    <ul class="nav-right">
+        <li>
+            <form action="search.html" class="search-form">
+                <input type="text" name="query" placeholder="Search..." class="search-bar">
+                <button type="submit" class="search-button">🔍</button>
+            </form>
+        </li>
+        <li>
+          <div class="cart-icon-wrapper">
+            <a href="cart.html" class="cart-icon">🛒</a>
+            <span id="cart-notification" class="notification-badge">0</span>
+          </div>
+        </li>
+      </ul>
+  </nav>
+
+<script>
+  // Function to update the cart notification across all pages
+  function updateCartNotification() {
+    let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+    document.getElementById('cart-notification').innerText = cartItems.length;
+  }
+
+  // Call the updateCartNotification function on page load
+  window.onload = function() {
+    updateCartNotification();
+  };
+</script>
+    
+  <main>
+    <div class="signin-container">
+      <form class="signin-form" action="index.html" method="POST">
+        <h2>Sign In</h2>
+        
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required />
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required />
+
+        <button type="submit" class="signin-button">Sign In</button>
+
+        <div class="signin-footer">
+            <p>Don't have an account?<a href="register.html">Create an account</a></p>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Endurance Emporium. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const form = document.querySelector('.signin-form');
+      const emailInput = form.querySelector('input[type="email"]');
+      const passwordInput = form.querySelector('input[type="password"]');
+
+      let errorMessage = document.createElement('div');
+      errorMessage.className = 'signin-error';
+      errorMessage.textContent = 'Please enter a valid email and password.';
+      form.insertBefore(errorMessage, form.querySelector('.signin-button'));
+
+      form.addEventListener('submit', function (e) {
+        let isValid = true;
+
+        if (emailInput.value.trim() === '' || passwordInput.value.trim() === '') {
+          isValid = false;
+        }
+
+        if (!isValid) {
+          e.preventDefault();
+          errorMessage.style.display = 'block';
+        } else {
+          errorMessage.style.display = 'none';
+        }
+      });
+    });
+  </script>
+
+</body>
+</html>

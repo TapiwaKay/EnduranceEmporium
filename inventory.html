@@ -1,0 +1,1006 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inventory - Endurance Emporium</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="header-container">
+    <div class="logo-section">
+      <img src="img/logo.jpg" alt="Endurance Emporium Logo" class="logo">
+      <div class="company-info">
+        <h1>Endurance Emporium</h1>
+        <p>Where endurance meets excellence</p>
+      </div>
+    </div>
+    <div class="signin-section">
+      <a href="signin.html" class="signin-link">Sign In</a>
+    </div>
+  </div>
+</header>
+
+<nav>
+  <ul class="nav-left">
+    <li><a href="index.html">Home</a></li>
+    <li class="dropdown">
+      <a href="inventory.html" class="dropbtn">Shop ▾</a>
+      <ul class="dropdown-content">
+        <li><a href="#equipment" class="category-link" data-category="equipment">Equipment</a></li>
+        <li><a href="#pre-workouts" class="category-link" data-category="pre-workouts">Pre-workouts</a></li>
+        <li><a href="#creatine" class="category-link" data-category="creatine">Creatine</a></li>
+        <li><a href="#post-workout" class="category-link" data-category="post-workout">Post-workout</a></li>
+        <li><a href="#barsandsnacks" class="category-link" data-category="barsandsnacks">Bars and Snacks</a></li>
+        <li><a href="#drinks" class="category-link" data-category="drinks">Drinks</a></li>
+        <li><a href="#spikes" class="category-link" data-category="spikes">Spikes</a></li>
+        <li><a href="#runningshoes" class="category-link" data-category="runningshoes">Running Shoes</a></li>
+        <li><a href="#womensapparel" class="category-link" data-category="womensapparel">Women's Apparel</a></li>
+        <li><a href="#mensapparel" class="category-link" data-category="mensapparel">Men's Apparel</a></li>
+        <li><a href="#accessories" class="category-link" data-category="accessories">Accessories</a></li>
+      </ul>
+    </li>
+    <li><a href="reviews.html">Reviews</a></li>
+    <li><a href="blog.html">Blog</a></li>
+    <li><a href="about.html">About Us</a></li>
+    <li><a href="contact.html">Contact Us</a></li>
+  </ul>
+
+  <ul class="nav-right">
+    <li>
+      <form action="search.html" class="search-form">
+        <input type="text" placeholder="Search..." class="search-bar">
+        <button type="submit" class="search-button">🔍</button>
+      </form>
+    </li>
+    <li>
+      <div class="cart-icon-wrapper">
+        <a href="cart.html" class="cart-icon">🛒</a>
+        <span id="cart-notification" class="notification-badge">0</span>
+      </div>
+    </li>
+  </ul>
+</nav>
+
+<script>
+  // Function to update the cart notification across all pages
+  function updateCartNotification() {
+    let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+    document.getElementById('cart-notification').innerText = cartItems.length;
+  }
+
+  // Call the updateCartNotification function on page load
+  window.onload = function() {
+    updateCartNotification();
+  };
+</script>
+  
+
+<main>
+  <h2>Our Products</h2>
+
+  <section id="equipment" class="category-section">
+    <h3>Equipment</h3>
+
+    <div class="product-grid">
+    <div class="product-card">
+        <img src="img/startingblock.jpeg" alt="starting block">
+        <h4>Fusion F10 starting block</h4>
+        <p>
+          <strong>BWP 7565.97</strong>
+        </p>
+        <button class="btn btn-primary w-100 add-to-cart-btn" data-product="Fusion F10 starting block" data-price="7565.97">
+            Add to Cart
+        </button>
+    </div>
+    <div class="product-card">
+        <img src="img/hurdles.jpg" alt="hurdles">
+        <h4>Metis Adjustable Alloy Hurdles</h4>
+        <p>
+          <strong>BWP 847.16 </strong>
+        </p>
+        <button class="btn btn-primary w-100 add-to-cart-btn" data-product="Metis Adjustable Alloy Hurdles" data-price="847.16">
+            Add to Cart
+        </button>
+    </div>
+    <div class="product-card">
+        <img src="img/stopwatch.jpg" alt="stopwatch">
+        <h4>Digital Stopwatch</h4>
+        <p>
+          <strong>BWP 299.91</strong>
+        </p>
+        <button class="btn btn-primary w-100 add-to-cart-btn" data-product="Digital Stopwatch" data-price="299.91">
+            Add to Cart
+        </button>
+    </div>
+    <div class="product-card">
+        <img src="img/baton.jpg" alt="baton">
+        <h4>Metis Alloy Relay Batons [Pack of 6]</h4>
+        <p>
+          <strong>BWP 486.78</strong>
+        </p>
+        <button class="btn btn-primary  w-100 add-to-cart-btn" data-product="Metis Alloy Relay Batons [Pack of 6]" data-price="486.78">
+            Add to Cart
+        </button>
+    </div>
+    <div class="product-card">
+        <img src="img/flexi.cone.jpg" alt="flexi cone">
+        <h4>Forza flexi cones</h4>
+        <p>
+          <strong>BWP 228.60</strong>
+        </p>
+        <button class="btn btn-primary  w-100 add-to-cart-btn" data-product="Forza flexi cones" data-price="228.60">
+            Add to Cart
+        </button>
+    </div>
+    <div class="product-card">
+        <img src="img/starting.pistol.jpg" alt="starting pistol">
+        <h4>22 Caliber starting pistol</h4>
+        <p>
+          <strong>BWP 2903.70</strong>
+        </p>
+        <button class="btn btn-primary  w-100 add-to-cart-btn" data-product="22 Caliber starting pistol" data-price="2903.70">
+            Add to Cart
+        </button>
+    </div>
+    <div class="product-card">
+      <img src="img/speed.ladder.jpg" alt="speed ladder">
+      <h4>fitfix speed agility ladder</h4>
+      <p>
+        <strong>BWP 209.01</strong>
+      </p>
+      <button class="btn btn-primary  w-100 add-to-cart-btn" data-product="fitfix speed agility ladder" data-price="209.01">
+        Add to Cart
+      </button>
+    </div>
+    <div class="product-card">
+      <img src="img/parachute.jpg" alt="parachute">
+      <h4>running resistance speed parachute</h4>
+      <p>
+        <strong>BWP 156.91</strong>
+      </p>
+      <button class="btn btn-primary  w-100 add-to-cart-btn" data-product="running resistance speed parachute" data-price="156.91">
+        Add to Cart
+      </button>
+    </div>
+    <div class="product-card">
+      <img src="img/speed.agilityhurdles.jpg" alt="speed agility hurdles">
+      <h4>Speed agility training hurdles [Pack of 6]</h4>
+      <p>
+        <strong>BWP 627.09</strong>
+      </p>
+      <button class="btn btn-primary w-100 add-to-cart-btn" data-product="Speed agility training hurdles [Pack of 6]" data-price="627.09">
+        Add to Cart
+      </button>
+    </div>
+    <div class="product-card">
+      <img src="img/sled.belts.jpg" alt="sled belts">
+      <h4>Resistance sled belts</h4>
+      <p>
+        <strong>BWP 272.65</strong>
+      </p>
+      <button class="btn btn-primary w-100 add-to-cart-btn" data-product="Resistance sled belts" data-price="272.65">
+        Add to Cart
+      </button>
+    </div>
+    </div>
+
+  </section>
+
+  <section id="pre-workouts" class="category-section">
+    <h3>Pre-workouts</h3>
+
+    <div class="product-grid">
+    <div class="product-card">
+      <img src="img/qhush.hyperdrive.webp" alt="qhush hyperdrive">
+      <h4>Qhush hyperdrive pre-workout 210g</h4>
+      <p>
+        <strong>BWP 96.81</strong>
+      </p>
+      <button class="btn btn-primary w-100 add-to-cart-btn" data-product="Qhush hyperdrive pre-workout 210g" data-price="96.81">
+        Add to Cart
+      </button>
+    </div>
+    <div class="product-card">
+      <img src="img/xts.hyperdrive.webp" alt="xts hyperdrive">
+      <h4>XTS hyperdrive pre-workout 210g</h4>
+      <p>
+        <strong>BWP 160.60</strong>
+      </p>
+      <button class="btn btn-primary w-100 add-to-cart-btn" data-product="XTS hyperdrive pre-workout 210g" data-price="160.60">
+        Add to Cart
+      </button>
+    </div>
+    <div class="product-card">
+      <img src="img/bsn_n.o.xplode.avif" alt="bsn n.o.xplode">
+      <h4>BSN N.O.Xplode legendary pre-workout 555g</h4>
+      <p>
+        <strong>BWP 354.44</strong>
+      </p>
+      <button class="btn btn-primary w-100 add-to-cart-btn" data-product="BSN N.O.Xplode legendary pre-workout 555g" data-price="354.44">
+        Add to Cart
+      </button>
+    </div>
+    </div>
+
+  </section>
+
+  <section id="creatine" class="category-section">
+    <h3>Creatine</h3>
+
+    <div class="product-grid">
+    <div class="product-card">
+      <img src="img/kaged.creatine.avif" alt="kaged creatine">
+      <h4>Kaged creatine HCL 56.25g</h4>
+      <p>
+        <strong>BWP 395.34</strong>
+      </p>
+      <button class="btn btn-primary w-100 add-to-cart-btn" data-product="Kaged creatine HCL 56.25g" data-price="395.34">
+        Add to Cart
+      </button>
+    </div>
+    <div class="product-card">
+      <img src="img/creatine.x4.webp" alt="Creatine X4">
+      <h4>Creatine X4 120capsules</h4>
+      <p>
+        <strong>BWP 284.42</strong>
+      </p>
+      <button class="btn btn-primary w-100 add-to-cart-btn" data-product="Creatine X4 120capsules" data-price="284.42">
+        Add to Cart
+      </button>
+    </div>
+    </div>
+  </section>
+
+  <section id="post-workout" class="category-section">
+    <h3>Post-workout</h3>
+
+    <div class="product-grid">
+    <div class="product-card">
+      <img src="img/bcaa.avif" alt="bcaa">
+      <h4>EVLution Nutrition BCAA Energy 285g</h4>
+      <p>
+        <strong>BWP 225.75</strong>
+      </p>
+      <button class="btn btn-primary w-100 add-to-cart-btn" data-product="EVLution Nutrition BCAA Energy 285g" data-price="225.75">
+        Add to Cart
+      </button>
+    </div>
+    <div class="product-card">
+      <img src="img/glut.avif" alt="glutamine">
+      <h4>Muscle Tech platinum 100% Glutamine 300g</h4>
+      <p>
+        <strong>BWP 233.66</strong>
+      </p>
+      <button class="btn btn-primary w-100 add-to-cart-btn" data-product="Muscle Tech platinum 100% Glutamine 300g" data-price="233.66">
+        Add to Cart
+      </button>
+    </div>
+    <div class="product-card">
+        <img src="img/usn.12.1.1.webp" alt="usn 12:1:1">
+        <h4>Usn BCAA 12:1:1 315g</h4>
+        <p>
+          <strong>BWP 231.89</strong>
+        </p>
+        <button class="btn btn-primary w-100 add-to-cart-btn" data-product="Usn BCAA 12:1:1 315g" data-price="231.89">
+          Add to Cart
+        </button>
+    </div>
+    </div>
+  </section>
+
+  <section id="barsandsnacks" class="category-section">
+    <h3>Bars and Snacks</h3>
+
+    <div class="product-grid">
+    <div class="product-card">
+      <img src="img/energy.oats.webp" alt="energy oats">
+      <h4>Energy Oats Multi-grain bars 20*35g</h4>
+      <p>
+        <strong>BWP 204.13</strong>
+      </p>
+      <button class="btn btn-primary w-100 add-to-cart-btn" data-product="Energy Oats Multi-grain bars 20*35g" data-price="204.13">
+        Add to Cart
+      </button>
+    </div>
+    <div class="product-card">
+      <img src="img/trust.crunch.webp" alt="trust crunch">
+      <h4>Trust Crunch Bars</h4>
+      <p>
+        <strong>BWP 427.76</strong>
+      </p>
+      <button class="btn btn-primary w-100 add-to-cart-btn" data-product="Trust Crunch Bars" data-price="427.76">
+        Add to Cart
+      </button>
+    </div>
+    <div class="product-card">
+      <img src="img/quest.nutrition.avif" alt="quest nutrition">
+      <h4>Quest Nutrition Cheese Crackers 4*30g</h4>
+      <p>
+        <strong>BWP 156.91</strong>
+      </p>
+      <button class="btn btn-primary w-100 add-to-cart-btn" data-product="Quest Nutrition Cheese Crackers 4*30g" data-price="156.91">
+        Add to Cart
+      </button>
+    </div>
+    </div>
+  </section>
+
+  <section id="drinks" class="category-section">
+    <h3>Drinks</h3>
+
+    <div class="product-grid">
+    <div class="product-card">
+      <img src="img/powerade.jpg" alt="powerade">
+      <h4>Powerade ION4 Mountain Blast Zero Sugar 12*600ml</h4>
+      <p>
+        <strong>BWP 259.89</strong>
+      </p>
+      <button class="btn btn-primary w-100 add-to-cart-btn" data-product="Powerade ION4 Mountain Blast Zero Sugar 12/600ml" data-price="259.89">
+        Add to Cart
+      </button>
+    </div>
+    <div class="product-card">
+      <img src="img/oshee.jpg" alt="oshee">
+      <h4>Oshee Vitamin Water [Pack of 6]</h4>
+      <p>
+        <strong>BWP 318.81</strong>
+      </p>
+      <button class="btn btn-primary w-100  add-to-cart-btn" data-product="Oshee Vitamin Water[Pack of 6]" data-price="318.81">
+        Add to Cart
+      </button>
+    </div>
+    <div class="product-card">
+      <img src="img/energade.jpg" alt="energade">
+      <h4>Energade sports drink 24*500ml</h4>
+      <p>
+        <strong>BWP 195.34</strong>
+      </p>
+      <button class="btn btn-primary w-100 add-to-cart-btn" data-product="Energade sports drink" data-price="195.34">
+        Add to Cart
+      </button>
+    </div>
+    </div>
+  </section>
+
+  <section id="spikes" class="category-section">
+    <h3>Spikes</h3>
+
+    <div class="subcategory">
+      <h4>A. Sprinters</h4>
+      <div class="subcategory-grid">
+        <div class="product-card">
+          <img src="img/adidas.spikes.avif" alt="adidas spikes">
+          <h4>Adidas Adizero Prime SP3 Strung</h4>
+          <p>
+            <strong>BWP 2453.83</strong>
+          </p>
+          <button class="btn btn-primary w-100 add-to-cart-btn" data-product="Adidas Adizero Prime SP3 Strung" data-price="2453.83">
+            Add to cart
+          </button>
+        </div>
+
+        <div class="product-card">
+          <img src="img/airzoom.maxfly.png" alt="airzoom maxfly">
+          <h4>Nike Airzoom Maxfly 2</h4>
+          <p>
+            <strong>BWP 2590.15</strong>
+          </p>
+          <button class="btn btn-primary w-100 add-to-cart-btn" data-product="Nike Airzoom Maxfly 2" data-price="2590.15">
+            Add to Cart
+          </button>
+        </div>
+      </div>
+    </div>
+      
+    <div class="subcategory">
+      <h4>B. Middle-distance</h4>
+      <div class="subcategory-grid">
+        <div class="product-card">
+          <img src="img/airzoom.victory.png" alt="airzoom victory">
+          <h4>Nike Airzoom Victory 2</h4>
+          <p>
+            <strong>BWP 2590.15</strong>
+          </p>
+          <button class="btn btn-primary w-100" data-product="Nike Airzoom Victory 2" data-price="2590.15">
+            Add to cart
+          </button>
+        </div>
+
+        <div class="product-card">
+          <img src="img/md800.v8.jpg" alt="md800 v8">
+          <h4>New Balance MD800 V8</h4>
+          <p>
+            <strong>BWP 1606.23</strong>
+          </p>
+          <button class="btn btn-primary w-100 add-to-cart-btn" data-product="New Balance MD800 V8" data-price="1606.23">
+            Add to Cart
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="subcategory">
+      <h4>C. Long-distance</h4>
+      <div class="subcategory-grid">
+        <div class="product-card">
+          <img src="img/zoom.dragonfly2.png" alt="airzoom dragonfly2">
+          <h4>Nike Airzoom Dragonfly 2</h4>
+          <p>
+            <strong>BWP 2181.18</strong>
+          </p>
+          <button class="btn btn-primary w-100 add-to-cart-btn" data-product="Nike Airzoom Dragonfly 2" data-price="2181.18">
+            Add to cart
+          </button>
+        </div>
+   
+        <div class="product-card">
+          <img src="img/endorphine.cheetah.avif" alt="endorphine cheetah">
+          <h4>Saucony Endorphine Cheetah</h4>
+          <p>
+            <strong>BWP 2988.08</strong>
+          </p>
+          <button class="btn btn-primary w-100 add-to-cart-btn" data-product="Saucony Endorphine Cheetah" data-price="2988.08">
+            Add to Cart
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="subcategory">
+      <h4>D. Cross-Country</h4>
+      <div class="subcategory-grid">
+        <div class="product-card">
+          <img src="img/nike.zoomxc.jpg" alt="nike zoomxc">
+          <h4>Nike Airzoom Victory XC 5</h4>
+          <p>
+            <strong>BWP 1772.21</strong>
+          </p>
+          <button class="btn btn-primary w-100 add-to-cart-btn" data-product="Nike Airzoom Victory XC" data-price="1772.21">
+            Add to Cart
+          </button>
+        </div>
+        
+        <div class="product-card">
+          <img src="img/nb.sevenxc.avif" alt="nb sevenxc">
+          <h4>New Balance XC Seven V3</h4>
+          <p>
+            <strong>BWP 1346.11</strong>
+          </p>
+          <button class="btn btn-primary w-100 add-to-cart-btn" data-product="New Balance XC Seven V3" data-price="1346.11">
+            Add to Cart
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="runningshoes" class="category-section">
+    <h3>Running Shoes</h3>
+
+    <div class="subcategory">
+      <h4>A. Sprinters</h4>
+      <div class="subcategory-grid">
+        <div class="product-card">
+          <img src="img/adidas.adizerorunners.avif" alt="adidas adizerorunners">
+          <h4>Adidas Adizero Prime X</h4>
+          <p>
+            <strong>BWP 3408.10</strong>
+          </p>
+          <button class="btn btn-primary w-100 add-to-cart-btn" data-product="Adidas Adizero Prime X4" data-price="3408.10">
+            Add to Cart
+          </button>
+        </div>
+
+        <div class="product-card">
+          <img src="img/zoom.pegasus.jpg" alt="zoom pegasus">
+          <h4>Nike zoom pegasus Turbo 2</h4>
+          <p>
+            <strong>BWP 2295.22</strong>
+          </p>
+          <button class="btn btn-primary w-100 add-to-cart-btn" data-product="Nike zoom pegasus Turbo 2" data-price="2295.22">
+            Add to Cart
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="subcategory">
+      <h4>B. Middle-distance</h4>
+      <div class="subcategory-grid">
+        <div class="product-card">
+          <img src="img/mizuno.waverider.jpg" alt="mizuno waverider">
+          <h4>Mizuno Wave Rider 27</h4>
+          <p>
+            <strong>BWP 2044.18</strong>
+          </p>
+          <button class="btn btn-primary w-100 add-to-cart-btn" data-product="Mizuno Wave Rider 27" data-price="2044.18">
+            Add to Cart
+          </button>
+        </div>
+
+        <div class="product-card">
+          <img src="img/hoka.mach6.webp" alt="hoka mach6">
+          <h4>Hoka Mach 6</h4>
+          <p>
+            <strong>BWP 1899.65</strong>
+          </p>
+          <button class="btn btn-primary w-100 add-to-cart-btn" data-product="Hoka Mach 6" data-price="1899.65">
+            Add to Cart
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="subcategory">
+      <h4>C. Long-distance</h4>
+      <div class="subcategory-grid">
+        <div class="product-card">
+          <img src="img/honka.bondi9.webp" alt="honka bondi 9">
+          <h4>Hoka One One Bondi 9</h4>
+          <p>
+            <strong>BWP 2065.79</strong>
+          </p>
+          <button class="btn btn-primary w-100 add-to-cart-btn" data-product="Hoka One One Bondi 9" data-price="2065.79">
+            Add to Cart
+          </button>
+        </div>
+
+        <div class="product-card">
+          <img src="img/saucony.speed4.jpg" alt="saucony speed4">
+          <h4>Saucony Endorphine Speed 4</h4>
+          <p>
+            <strong>BWP 2317.50</strong>
+          </p>
+          <button class="btn btn-primary w-100 add-to-cart-btn"  data-product="Saucony Endorphine Speed 4" data-price="2317.50">
+            Add to Cart
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="subcategory">
+      <h4>D. Cross-Country</h4>
+      <div class="subcategory-grid">
+        <div class="product-card">
+          <img src="img/brook.launch10.avif" alt="brook launch10">
+          <h4>Brooks launch 10</h4>
+          <p>
+            <strong>BWP 1158.07</strong>
+          </p>
+          <button class="btn btn-primary w-100 add-to-cart-btn" data-product="Brooks launch 10" data-price="1158.07">
+            Add to Cart
+          </button>
+        </div>
+    
+        <div class="product-card">
+          <img src="img/peregine.14.jpg" alt="peregine 14">
+          <h4>Saucony Peregine 14</h4>
+          <p>
+            <strong>BWP 1239.86</strong>
+          </p>
+          <button class="btn btn-primary w-100 add-to-cart-btn" data-product="Saucony Peregine 14" data-price="1239.86">
+            Add to Cart
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="womensapparel" class="category-section">
+    <h3>Women's Apparel</h3>
+
+    <div class="product-grid">
+    <div class="product-card">
+      <img src="img/tanktop.jpeg" alt="tanktop">
+      <h4>Athletics Women Tank Top [2 Pack]</h4>
+      <p>
+        <strong>BWP 463.50</strong>
+      </p>
+      <button class="btn btn-primary w-100 add-to-cart-btn" data-product="Athletics Women Tank Top [2 Pack]" data-price="463.50">
+        Add to Cart
+      </button>
+    </div>
+    <div class="product-card">
+      <img src="img/woman.longsleeve.jpg" alt="longsleeve">
+      <h4>Adidas women's long sleeve top</h4>
+      <p>
+        <strong>BWP 749.78</strong>
+      </p>
+      <button class="btn btn-primary w-100 add-to-cart-btn" data-product="Adidas woman long sleeve top" data-price="749.78">
+        Add to Cart
+      </button>
+    </div>
+    <div class="product-card">
+      <img src="img/woman.shortsleeve.jpg" alt="shortsleeve">
+      <h4>Nike women's short sleeve top</h4>
+      <p>
+        <strong>BWP 386.48</strong>
+      </p>
+      <button class="btn btn-primary w-100 add-to-cart-btn" data-product="Nike women's short sleeve top" data-price="386.48">
+        Add to Cart
+      </button>
+    </div>
+    <div class="product-card">
+      <img src="img/nike_w_leggings.jpg" alt="nike w leggings">
+      <h4>Nike Pro Women's leggings</h4>
+      <p>
+        <strong>BWP 305.09</strong>
+      </p>
+      <button class="btn btn-primary w-100 add-to-cart-btn" data-product="Nike Pro Women's leggings" data-price="305.09">
+        Add to Cart
+      </button>
+    </div>
+    <div class="product-card">
+      <img src="img/women.shorts.jpg" alt="women shorts">
+      <h4>Nike dri-fit one shorts</h4>
+      <p>
+        <strong>BWP 307.86</strong>
+      </p>
+      <button class="btn btn-primary w-100 add-to-cart-btn" data-product="Nike dri-fit one shorts" data-price="307.86">
+        Add to Cart
+      </button>
+    </div>
+    <div class="product-card">
+      <img src="img/sportsbra.jpg" alt="sportsbra">
+      <h4>Nike padded sports bra</h4>
+      <p>
+        <strong>BWP 545.30</strong>
+      </p>
+      <button class="btn btn-primary w-100 add-to-cart-btn" data-product="Nike padded sports bra" data-price="545.30">
+        Add to Cart
+      </button>
+    </div>
+    <div class="product-card">
+      <img src="img/sports.hoodie.jpg" alt="sports hoodie">
+      <h4>Juss7 sport hoodie domes</h4>
+      <p>
+        <strong>BWP 576.97</strong>
+      </p>
+      <button class="btn btn-primary w-100 add-to-cart-btn" data-product="Juss7 sport hoodie domes" data-price="576.97">
+        Add to Cart
+      </button>
+    </div>
+    <div class="product-card">
+      <img src="img/woman.jacket.jpg" alt="woman jacket">
+      <h4>Gihuo Women's Athletic lightweight workout jacket</h4>
+      <p>
+        <strong>BWP 340.81</strong>
+      </p>
+      <button class="btn btn-primary w-100 add-to-cart-btn" data-product="Gihuo Women's Athletic lightweight workout jacket" data-price="340.81">
+        Add to Cart
+      </button>
+    </div>
+    <div class="product-card">
+      <img src="img/woman.warmupsuits.jpg" alt="woman warmupsuits">
+      <h4>Nike women's tracksuit</h4>
+      <p>
+        <strong>BWP 681.62</strong>
+      </p>
+      <button class="btn btn-primary w-100 add-to-cart-btn" data-product="Nike women's tracksuit" data-price="681.62">
+        Add to Cart
+      </button>
+    </div>
+    <div class="product-card">
+      <img src="img/competition.brief.webp" alt="competition brief">
+      <h4>Nike women's competition brief</h4>
+      <p>
+        <strong>BWP 813.67</strong>
+      </p>
+      <button class="btn btn-primary w-100 add-to-cart-btn" data-product="Nike women's competition brief" data-price="813.67">
+        Add to Cart
+      </button>
+    </div>
+    <div class="product-card">
+      <img src="img/w.compressionshort.jpg" alt="w compressionshort">
+      <h4>Nike women's pro-lite compression short</h4>
+      <p>
+        <strong>BWP 340.81</strong>
+      </p>
+      <button class="btn btn-primary w-100 add-to-cart-btn" data-product="Nike women's pro-lite compression short" data-price="340.81">
+        Add to Cart
+      </button>
+    </div>
+    </div>
+  </section>
+
+  <section id="mensapparel" class="category-section">
+    <h3>Men's Apparel</h3>
+
+    <div class="product-grid">
+    <div class="product-card">
+      <img src="img/mens.shortsleeve.webp" alt="mens shortsleeve">
+      <h4>Nike men's shortsleeve</h4>
+      <p>
+        <strong>BWP 545.30</strong>
+      </p>
+      <button class="btn btn-primary w-100 add-to-cart-btn" data-product="Adidas game built shortsleeve" data-price="545.30">
+        Add to Cart
+      </button>
+    </div>
+    <div class="product-card">
+      <img src="img/men.jacket.jpg" alt="men jacket">
+      <h4>Nike men's dry woven training jacket</h4>
+      <p>
+        <strong>BWP 613.46</strong>
+      </p>
+      <button class="btn btn-primary w-100 add-to-cart-btn" data-product="Nike men's dry woven training jacket" data-price="613.46">
+        Add to Cart
+      </button>
+    </div>
+    <div class="product-card">
+      <img src="img/mens.tracksuit.jpg" alt="mens tracksuit">
+      <h4>Nike men's tracksuit</h4>
+      <p>
+        <strong>BWP 749.78</strong>
+      </p>
+      <button class="btn btn-primary w-100 add-to-cart-btn" data-product="Nike men's tracksuit" data-price="749.78">
+        Add to Cart
+      </button>
+    </div>
+    <div class="product-card">
+      <img src="img/singlet.avif" alt="singlet">
+      <h4>Nike youth dri-fit miler singlet</h4>
+      <p>
+        <strong>BWP 441.27</strong>
+      </p>
+      <button class="btn btn-primary w-100 add-to-cart-btn" data-product="Nike youth dri-fit miler singlet" data-price="441.27">
+        Add to Cart
+      </button>
+    </div>
+    <div class="product-card">
+      <img src="img/men.shorts.avif" alt="men shorts">
+      <h4>Adidas men's running shorts</h4>
+      <p>
+        <strong>BWP 350.00</strong>
+      </p>
+      <button class="btn btn-primary w-100 add-to-cart-btn" data-product="Adidas men's running shorts" data-price="350.00">
+        Add to Cart
+      </button>
+    </div>
+    <div class="product-card">
+      <img src="img/male.compression.jpg" alt="male compression">
+      <h4>Under Armour Men's compression short tights</h4>
+      <p>
+        <strong>BWP 353.02</strong>
+      </p>
+      <button class="btn btn-primary w-100 add-to-cart-btn" data-product="Under Amour Men's compression short tights" data-price="353.02">
+        Add to Cart
+      </button>
+    </div>
+    <div class="product-card">
+      <img src="img/male.hoodie.jpg" alt="male hoodie">
+      <h4>Authentic Nike Hoodie</h4>
+      <p>
+        <strong>BWP 817.94</strong>
+      </p>
+      <button class="btn btn-primary w-100 add-to-cart-btn" data-product="Authentic Nike Hoodie" data-price="817.94">
+        Add to Cart
+      </button>
+    </div>
+    <div class="product-card">
+      <img src="img/mens.longsleeve.jpg" alt="mens longsleeve">
+      <h4>Under Armour Men's longsleeve</h4>
+      <p>
+        <strong>BWP 635.44</strong>
+      </p>
+      <button class="btn btn-primary w-100 add-to-cart-btn" data-product="Under Armour Men's longsleeve" data-price="635.44">
+        Add to Cart
+      </button>
+    </div>
+    <div class="product-card">
+      <img src="img/c.shirt.webp" alt="male compression">
+      <h4>Nike Pro men's dri-fit compression training shirt</h4>
+      <p>
+        <strong>BWP 477.13</strong>
+      </p>
+      <button class="btn btn-primary w-100 add-to-cart-btn" data-product="Nike Pro men's dri-fit compression training shirt" data-price="447.13">
+        Add to Cart
+      </button>
+    </div>
+    </div>
+  </section>
+
+  <section id="accessories" class="category-section">
+    <h3>Accessories</h3>
+
+    <div class="product-grid">
+    <div class="product-card">
+      <img src="img/socks.jpg" alt="socks">
+      <h4>Nike unisex sport socks [3 pairs]</h4>
+      <p>
+        <strong>BWP 186.99</strong>
+      </p>
+      <button class="btn btn-primary w-100 add-to-cart-btn" data-product="Nike unisex sport socks" data-price="186.99">
+        Add to Cart
+      </button>
+    </div>
+    <div class="product-card">
+      <img src="img/headbands.webp" alt="headbands">
+      <h4>Nike headbands [3 pack]</h4>
+      <p>
+        <strong>BWP 340.81</strong>
+      </p>
+      <button class="btn btn-primary w-100 add-to-cart-btn" data-product="Nike headbands [3 pack]" data-price="340.81">
+        Add to Cart
+      </button>
+    </div>
+    <div class="product-card">
+      <img src="img/yoga_mats.jpg" alt="yoga mats">
+      <h4>Yoga mats</h4>
+      <p>
+        <strong>BWP 100.00</strong>
+      </p>
+      <button class="btn btn-primary w-100 add-to-cart-btn" data-product="Yoga mats" data-price="100.00">
+        Add to Cart
+      </button>
+    </div>
+    <div class="product-card">
+      <img src="img/waterbottle.jpg" alt="waterbottle">
+      <h4>Water bottle</h4>
+      <p>
+        <strong>BWP 136.32</strong>
+      </p>
+      <button class="btn btn-primary w-100 add-to-cart-btn" data-product="Water bottle" data-price="136.32">
+        Add to Cart
+      </button>
+    </div>
+    <div class="product-card">
+      <img src="img/shaker.webp" alt="shaker">
+      <h4>USN Tornado shaker</h4>
+      <p>
+        <strong>BWP 66.53</strong>
+      </p>
+      <button class="btn btn-primary w-100 add-to-cart-btn" data-product="USN Tornado shaker" data-price="66.53">
+        Add to Cart
+      </button>
+    </div>
+    <div class="product-card">
+      <img src="img/duffel.bag.jpg" alt="duffel bag">
+      <h4>Nike duffel bag</h4>
+      <p>
+        <strong>BWP 477.13</strong>
+      </p>
+      <button class="btn btn-primary w-100 add-to-cart-btn" data-product="Nike duffel bag" data-price="477.13">
+        Add to Cart
+      </button>
+    </div>
+    </div>
+    
+  </section>
+  
+</main>
+
+<footer>
+  <p>&copy; 2025 Endurance Emporium. All rights reserved.</p>
+</footer>
+
+<!-- Bootstrap JS Bundle -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // Load cart from localStorage or initialize empty
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  // Get all "Add to Cart" buttons
+  const addToCartButtons = document.querySelectorAll('.add-to-cart-btn');
+
+  // Function to update the notification badge
+  function updateCart() {
+    const badge = document.getElementById('cart-notification');
+    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+    badge.textContent = totalItems;
+
+    badge.style.display = totalItems > 0 ? 'block' : 'none';
+
+    // Save updated cart to localStorage
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }
+
+  // Function to show toast (optional, if you're using it)
+  function showToast() {
+    const toast = document.getElementById('toast');
+    if (!toast) return;
+    toast.classList.add('show');
+    setTimeout(() => {
+      toast.classList.remove('show');
+    }, 2500);
+  }
+
+  // Add event listeners to "Add to Cart" buttons
+  addToCartButtons.forEach(button => {
+    button.addEventListener('click', function () {
+      const productName = this.getAttribute('data-product');
+      const productPrice = parseFloat(this.getAttribute('data-price'));
+      const productImage = this.parentElement.querySelector('img')?.src || ''; // optional
+
+      const quantity = 1;
+
+      const existingIndex = cart.findIndex(item => item.name === productName);
+      if (existingIndex !== -1) {
+        cart[existingIndex].quantity += quantity;
+      } else {
+        cart.push({ name: productName, price: productPrice, image: productImage, quantity });
+      }
+
+      updateCart();
+      showToast();
+    });
+  });
+
+  // Initialize on load
+  updateCart();
+</script>
+
+
+<script>
+  // Toggle dropdown on click (click to open/close dropdown)
+  document.querySelectorAll('.dropdown > a').forEach(trigger => {
+    trigger.addEventListener('click', function (e) {
+      e.preventDefault();
+      
+      const parentDropdown = this.parentElement; // Get the parent <li> of the clicked link
+
+      // Close all dropdowns first
+      document.querySelectorAll('.dropdown').forEach(drop => {
+        if (drop !== parentDropdown) {
+          drop.classList.remove('active');
+        }
+      });
+
+      // Toggle the clicked dropdown
+      parentDropdown.classList.toggle('active');
+    });
+  });
+
+  // Handle category switching (hide sections and show the selected one)
+  document.querySelectorAll('[data-category]').forEach(link => {
+    link.addEventListener('click', function (e) {
+      e.preventDefault();
+      const targetId = this.getAttribute('data-category');
+
+      // Hide all category sections
+      document.querySelectorAll('.category-section').forEach(section => {
+        section.style.display = 'none';
+      });
+
+      // Show selected section
+      const targetSection = document.getElementById(targetId);
+      if (targetSection) {
+        targetSection.style.display = 'block';
+        window.scrollTo({ top: targetSection.offsetTop - 140, behavior: 'smooth' });
+      }
+
+      // Close all dropdowns after selecting a category
+      document.querySelectorAll('.dropdown').forEach(drop => {
+        drop.classList.remove('active');
+      });
+    });
+  });
+
+  // Close dropdown if click is outside the dropdown (mobile-friendly)
+  document.addEventListener('click', function (e) {
+    if (!e.target.closest('.dropdown')) {
+      document.querySelectorAll('.dropdown').forEach(drop => drop.classList.remove('active'));
+    }
+  });
+</script>
+<!-- Toast notification -->
+<div id="toast" class="toast-message">
+  <span id="toast-text">Product added to cart!</span>
+  <button id="view-cart-btn" onclick="window.location.href='cart.html'">View Cart</button>
+</div>
+
+
+
+
+</body>
+</html>

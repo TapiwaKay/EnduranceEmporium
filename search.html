@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Search Results | Endurance Emporium</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="header-container">
+      <div class="logo-section">
+        <img src="img/logo.jpg" alt="Endurance Emporium Logo" class="logo">
+        <div class="company-info">
+          <h1>Endurance Emporium</h1>
+          <p>Where endurance meets excellence</p>
+        </div>
+      </div>
+      <div class="signin-section">
+        <a href="signin.html" class="signin-link">Sign In</a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navigation -->
+  <nav>
+    <ul class="nav-left">
+      <li><a href="index.html">Home</a></li>
+      <li class="dropdown">
+        <a href="inventory.html" class="dropbtn">Shop ▾</a>
+        <ul class="dropdown-content">
+          <li><a href="equipment.html">Equipment</a></li>
+          <li><a href="pre-workouts.html">Pre-workouts</a></li>
+          <li><a href="creatine.html">Creatine</a></li>
+          <li><a href="post-workout.html">Post-workout</a></li>
+          <li><a href="bars-snacks.html">Bars and Snacks</a></li>
+          <li><a href="drinks.html">Drinks</a></li>
+          <li><a href="spikes.html">Spikes</a></li>
+          <li><a href="running-shoes.html">Running Shoes</a></li>
+          <li><a href="womens-apparel.html">Women's Apparel</a></li>
+          <li><a href="mens-apparel.html">Men's Apparel</a></li>
+          <li><a href="accessories.html">Accessories</a></li>
+        </ul>
+      </li>
+      <li><a href="reviews.html">Reviews</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="contact.html">Contact Us</a></li>
+    </ul>
+    <ul class="nav-right">
+      <li>
+        <form action="search.html" method="GET" class="search-form">
+          <input type="text" name="query" placeholder="Search..." class="search-bar">
+          <button type="submit" class="search-button">🔍</button>
+        </form>
+      </li>
+      <li>
+        <div class="cart-icon-wrapper">
+            <a href="cart.html" class="cart-icon">🛒</a>
+            <span id="cart-notification" class="notification-badge">0</span>
+        </div>
+      </li>
+    </ul>
+  </nav>
+
+  <!-- Search Results Container -->
+  <main class="search-main">
+    <h2 class="search-heading">Search Results</h2>
+    <div class="search-results-container"></div>
+  </main>
+
+  <!-- JavaScript -->
+  <script>
+    const products = [
+      {
+        title: "Fusion F10 starting block",
+        price: "7565.97",
+        category: "Equipment",
+        image: "img/startingblock.jpeg"
+      },
+       
+      {
+        title: "Metis Adjustable Alloy Hurdles",
+        price: "847.16",
+        category: "Equipment",
+        image: "img/hurdles.jpg"
+      },
+      {
+        title: "Digital Stopwatch",
+        price: "299.91",
+        category: "Equipment",
+        image: "img/stopwatch.jpg"
+      },
+      {
+        title: "Metis Alloy Relay Batons [Pack of 6]",
+        price: "486.78",
+        category: "Equipment",
+        image: "img/baton.jpg"
+      },
+      {
+        title: "Forza flexi cones",
+        price: "228.60",
+        category: "Equipment",
+        image: "img/flexi.cone.jpg"
+      },
+      {
+        title: "22 Caliber starting pistol",
+        price: "2903.70",
+        category: "Equipment",
+        image: "img/starting.pistol.jpg"
+      },
+      {
+        title: "fitfix speed agility ladder",
+        price: "209.01",
+        category: "Equipment",
+        image: "img/speed.ladder.jpg"
+      },
+      {
+        title: "running resistance speed parachute",
+        price: "156.91",
+        category: "Equipment",
+        image: "img/parachute.jpg"
+      },
+      {
+        title: "Speed agility training hurdles [Pack of 6]",
+        price: "627.09",
+        category: "Equipment",
+        image: "img/speed.agilityhurdles.jpg"
+      },
+      {
+        title: "Resistance sled belts",
+        price: "272.65",
+        category: "Equipment",
+        image: "img/sled.belts.jpg"
+      },
+      {
+        title: "Qhush hyperdrive pre-workout 210g",
+        price: "96.81",
+        category: "Pre-workouts",
+        image: "img/qhush.hyperdrive.webp"
+      },
+      {
+        title: "XTS hyperdrive pre-workout 210g",
+        price: "160.60",
+        category: "Pre-workouts",
+        image: "img/xts.hyperdrive.webp"
+      },
+      {
+        title: "BSN N.O.Xplode legendary pre-workout 555g",
+        price: "354.44",
+        category: "Pre-workouts",
+        image: "img/bsn_n.o.xplode.avif"
+      },
+      {
+        title: "Kaged creatine HCL 56.25g",
+        price: "395.34",
+        category: "Creatine",
+        image: "img/kaged.creatine.avif"
+      },
+      {
+        title: "Creatine X4 120 capsules",
+        price: "284.42",
+        category: "Creatine",
+        image: "img/creatine.x4.webp"
+      },
+      {
+        title: "EVLution Nutrition BCAA Energy 285g",
+        price: "225.75",
+        category: "Post-workout",
+        image: "img/bcaa.avif"
+      },
+      {
+        title: "Muscle Tech platinum 100% Glutamine 300g",
+        price: "233.66",
+        category: "Post-workout",
+        image: "img/glut.avif"
+      },
+      {
+        title: "Usn BCAA 12:1:1 315g",
+        price: "231.89",
+        category: "Post-workout",
+        image: "img/usn.12.1.1.webp"
+      },
+      {
+        title: "Energy Oats Multi-grain bars 20*35g",
+        price: "204.13",
+        category: "Bars and Snacks",
+        image: "img/energy.oats.webp"
+      },
+      {
+        title: "Trust Crunch Bars",
+        price: "427.76",
+        category: "Bars and Snacks",
+        image: "img/trust.crunch.webp"
+      },
+      {
+        title: "Quest Nutrition Cheese Crackers 4*30g",
+        price: "156.91",
+        category: "Bars and Snacks",
+        image: "img/quest.nutrition.avif"
+      },
+      {
+        title: "Powerade ION4 Mountain Blast Zero Sugar 12*600ml",
+        price: "259.89",
+        category: "Drinks",
+        image: "img/powerade.jpg"
+      },
+      {
+        title: "Oshee Vitamin Water [Pack of 6]",
+        price: "318.81",
+        category: "Drinks",
+        image: "img/oshee.jpg"
+      },
+      {
+        title: "Energade sports drink 24*500ml",
+        price: "195.34",
+        category: "Drinks",
+        image: "img/energade.jpg"
+      },
+      {
+        title: "Adidas Adizero Prime SP3",
+        price: "2453.83",
+        category: "Spikes",
+        subcategory: "Sprinters",
+        image: "img/adidas.spikes.avif"
+      },
+      {
+        title: "Nike Airzoom Maxfly 2",
+        price: "2590.15",
+        category: "Spikes",
+        subcategory: "Sprinters",
+        image: "img/airzoom.maxfly.png"
+      },
+      {
+        title: "Nike Airzoom Victory 2",
+        price: "2590.15",
+        category: "Spikes",
+        subcategory: "Middle-distance",
+        image: "img/airzoom.victory.png"
+      },
+      {
+        title: "New Balance MD800 V8",
+        price: "1606.23",
+        category: "Spikes",
+        subcategory: "Middle-distance",
+        image: "img/md800.v8.jpg"
+      },
+      {
+        title: "Nike Airzoom Dragonfly 2",
+        price: "2181.18",
+        category: "Spikes",
+        subcategory: "Long-distance",
+        image: "img/zoom.dragonfly2.png"
+      },
+      {
+        title: "Saucony Endorphine Cheetah",
+        price: "2988.08",
+        category: "Spikes",
+        subcategory: "Long-distance",
+        image: "img/endorphine.cheetah.avif"
+      },
+      {
+        title: "Nike Airzoom Victory XC 5",
+        price: "1772.21",
+        category: "Spikes",
+        subcategory: "Cross-Country",
+        image: "img/nike.zoomxc.jpg"
+      },
+      {
+        title: "New Balance XC Seven V3",
+        price: "1346.11",
+        category: "Spikes",
+        subcategory: "Cross-Country",
+        image: "img/nb.sevenxc.avif"
+      },
+      {
+        title: "Adidas Adizero Prime X",
+        price: "3408.10",
+        category: "Running Shoes",
+        subcategory: "Sprinters",
+        image: "img/adidas.adizerorunners.avif"
+      },
+      {
+        title: "Nike zoom pegasus Turbo 2",
+        price: "2295.22",
+        category: "Running Shoes",
+        subcategory: "Sprinters",
+        image: "img/zoom.pegasus.jpg"
+      },
+      {
+        title: "Mizuno Wave Rider 27",
+        price: "2044.18",
+        category: "Running Shoes",
+        subcategory: "Middle-distance",
+        image: "img/mizuno.waverider.jpg"
+      },
+      {
+        title: "Hoka Mach 6",
+        price: "1899.65",
+        category: "Running Shoes",
+        subcategory: "Middle-distance",
+        image: "img/hoka.mach6.webp"
+      },
+      {
+        title: "Hoka One One Bondi 9",
+        price: "2065.79",
+        category: "Running Shoes",
+        subcategory: "Long-distance",
+        image: "img/honka.bondi9.webp"
+      },
+      {
+        title: "Saucony Endorphine Speed 4",
+        price: "2317.50",
+        category: "Running Shoes",
+        subcategory: "Long-distance",
+        image: "img/saucony.speed4.jpg"
+      },
+      {
+        title: "Brooks launch 10",
+        price: "1158.07",
+        category: "Running Shoes",
+        subcategory: "Cross-Country",
+        image: "img/brook.launch10.avif"
+      },
+      {
+        title: "Saucony Peregine 14",
+        price: "1239.86",
+        category: "Running Shoes",
+        subcategory: "Cross-Country",
+        image: "img/peregine.14.jpg"
+      },
+      {
+        title: "Athletics Women Tank Top [2 Pack]",
+        price: "463.50",
+        category: "Women's Apparel",
+        image: "img/tanktop.jpeg"
+      },
+      {
+        title: "Adidas women's long sleeve top",
+        price: "749.78",
+        category: "Women's Apparel",
+        image: "img/woman.longsleeve.jpg"
+      },
+      {
+        title: "Nike women's short sleeve top",
+        price: "386.48",
+        category: "Women's Apparel",
+        image: "img/woman.shortsleeve.jpg"
+      },
+      {
+        title: "Nike Pro Women's leggings",
+        price: "305.09",
+        category: "Women's Apparel",
+        image: "img/nike_w_leggings.jpg"
+      },
+      {
+        title: "Nike dri-fit one shorts",
+        price: "307.86",
+        category: "Women's Apparel",
+        image: "img/women.shorts.jpg"
+      },
+      {
+        title: "Nike padded sports bra",
+        price: "545.30",
+        category: "Women's Apparel",
+        image: "img/sportsbra.jpg"
+      },
+      {
+        title: "Juss7 sport hoodie domes",
+        price: "576.97",
+        category: "Women's Apparel",
+        image: "img/sports.hoodie.jpg"
+      },
+      {
+        title: "Gihuo Women's Athletic lightweight workout jacket",
+        price: "340.81",
+        category: "Women's Apparel",
+        image: "img/woman.jacket.jpg"
+      },
+      {
+        title: "Nike women's tracksuit",
+        price: "681.62",
+        category: "Women's Apparel",
+        image: "img/woman.warmupsuits.jpg"
+      },
+      {
+        title: "Nike women's competition brief",
+        price: "813.67",
+        category: "Women's Apparel",
+        image: "img/competition.brief.webp"
+      },
+      {
+        title: "Nike women's pro-lite compression short",
+        price: "340.81",
+        category: "Women's Apparel",
+        image: "img/w.compressionshort.jpg"
+      },
+      {
+        title: "Nike men's shortsleeve",
+        price: "545.30",
+        category: "Men's Apparel",
+        image: "img/mens.shortsleeve.webp"
+      },
+      {
+        title: "Nike men's dry woven training jacket",
+        price: "613.46",
+        category: "Men's Apparel",
+        image: "img/men.jacket.jpg"
+      },
+      {
+        title: "Nike men's tracksuit",
+        price: "749.78",
+        category: "Men's Apparel",
+        image: "img/mens.tracksuit.jpg"
+      },
+      {
+        title: "Nike youth dri-fit miler singlet",
+        price: "441.27",
+        category: "Men's Apparel",
+        image: "img/singlet.avif"
+      },
+      {
+        title: "Adidas men's running shorts",
+        price: "350.00",
+        category: "Men's Apparel",
+        image: "img/men.shorts.avif"
+      },
+      {
+        title: "Under Armour Men's compression short tights",
+        price: "353.02",
+        category: "Men's Apparel",
+        image: "img/male.compression.jpg"
+      },
+      {
+        title: "Authentic Nike Hoodie",
+        price: "817.94",
+        category: "Men's Apparel",
+        image: "img/male.hoodie.jpg"
+      },
+      {
+        title: "Under Armour Men's longsleeve",
+        price: "635.44",
+        category: "Men's Apparel",
+        image: "img/mens.longsleeve.jpg"
+      },
+      {
+        title: "Nike Pro men's dri-fit compression training shirt",
+        price: "477.13",
+        category: "Men's Apparel",
+        image: "img/male.compression.jpg"
+      },
+      {
+        title: "Nike unisex sport socks [3 pairs]",
+        price: "186.99",
+        category: "Accessories",
+        image: "img/socks.jpg"
+      },
+      {
+        title: "Nike headbands [3 pack]",
+        price: "340.81",
+        category: "Accessories",
+        image: "img/headbands.webp"
+      },
+      {
+        title: "Yoga mats",
+        price: "100.00",
+        category: "Accessories",
+        image: "img/yoga_mats.jpg"
+      },
+      {
+        title: "Water bottle",
+        price: "136.32",
+        category: "Accessories",
+        image: "img/waterbottle.jpg"
+      },
+      {
+        title: "USN Tornado shaker",
+        price: "66.53",
+        category: "Accessories",
+        image: "img/shaker.webp"
+      },
+      {
+        title: "Nike duffel bag",
+        price: "477.13",
+        category: "Accessories",
+        image: "img/duffel.bag.jpg"
+      },
+     
+
+      // Add more products here
+    ];
+
+    const params = new URLSearchParams(window.location.search);
+    const query = params.get('query')?.trim().toLowerCase();
+    const resultsContainer = document.querySelector('.search-results-container');
+
+    function createProductCard(product) {
+      const card = document.createElement('div');
+      card.classList.add('product-card');
+      card.innerHTML = `
+        <img src="${product.image}" alt="${product.title}">
+        <p class="product-title">${product.title}</p>
+        <p class="product-price"><strong>BWP ${product.price}</strong></p>
+        <button class="btn btn-primary w-100 add-to-cart-btn"
+                data-product="${product.title}"
+                data-price="${product.price}">
+          Add to Cart
+        </button>
+      `;
+      return card;
+    }
+
+    function displayNoQueryMessage() {
+      resultsContainer.innerHTML = `
+        <p class="no-query-msg">Please enter a search term to see results.</p>
+      `;
+    }
+
+    function displayResults(matches) {
+      resultsContainer.innerHTML = '';
+      if (matches.length === 0) {
+        resultsContainer.innerHTML = `
+          <p class="no-query-msg">No products found for "${query}".</p>
+        `;
+        return;
+      }
+
+      const row = document.createElement('div');
+      row.classList.add('search-results-row');
+      matches.forEach(product => row.appendChild(createProductCard(product)));
+      resultsContainer.appendChild(row);
+    }
+
+    if (!query) {
+      displayNoQueryMessage();
+    } else {
+      const matches = products.filter(product =>
+        product.title.toLowerCase().includes(query) ||
+        product.category.toLowerCase().includes(query)
+      );
+      displayResults(matches);
+    }
+
+    // Optional Add to Cart behavior
+    document.addEventListener('click', function(e) {
+      if (e.target.classList.contains('add-to-cart-btn')) {
+        const product = e.target.dataset.product;
+        const price = e.target.dataset.price;
+        alert(`${product} added to cart for BWP ${price}`);
+        // Add your cart logic here
+      }
+    });
+  </script>
+  <!-- Toast notification -->
+<div id="toast" class="toast-message">
+  <span id="toast-text">Product added to cart!</span>
+  <button id="view-cart-btn" onclick="window.location.href='cart.html'">View Cart</button>
+</div>
+
+<script>
+  // Load cart from localStorage or initialize empty
+  let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+  // Function to update the cart badge
+  function updateCart() {
+    const badge = document.getElementById('cart-notification');
+    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+    badge.textContent = totalItems;
+    badge.style.display = totalItems > 0 ? 'inline-block' : 'none';
+    localStorage.setItem("cart", JSON.stringify(cart));
+  }
+
+  // Show toast
+  function showToast(message = "Product added to cart!") {
+    const toast = document.getElementById('toast');
+    const toastText = document.getElementById('toast-text');
+    toastText.textContent = message;
+    toast.classList.add('show');
+    setTimeout(() => toast.classList.remove('show'), 2500);
+  }
+
+  // Handle add-to-cart
+  document.addEventListener("click", function (e) {
+    if (e.target.classList.contains("add-to-cart-btn")) {
+      const button = e.target;
+      const name = button.getAttribute("data-product");
+      const price = parseFloat(button.getAttribute("data-price"));
+      const image = button.closest(".product-card")?.querySelector("img")?.src || "";
+
+      const existingIndex = cart.findIndex(item => item.name === name);
+      if (existingIndex !== -1) {
+        cart[existingIndex].quantity += 1;
+      } else {
+        cart.push({ name, price, image, quantity: 1 });
+      }
+
+      updateCart();
+      showToast(`${name} added to cart!`);
+    }
+  });
+
+  // Initialize cart badge
+  updateCart();
+</script>
+<footer>
+    <p>&copy; 2025 Endurance Emporium. All rights reserved.</p>
+</footer>
+
+
+
+</body>
+</html>
