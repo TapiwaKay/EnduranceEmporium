@@ -309,7 +309,7 @@ h3:hover {
   max-width: 1200px;
   height: 70vh;
   background-color:#dde7f2;
-  padding: 20px;
+  padding: 0px;
   display: flex;
   align-items: center;
   justify-content: center;
