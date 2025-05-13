@@ -340,6 +340,7 @@ h3:hover {
   position: absolute;
   bottom: 10%;
   left: 5%;
+  z-index: 10;
   text-align: left;
   background: rgba(0,0,0,0.4);
   padding: 10px 20px;
