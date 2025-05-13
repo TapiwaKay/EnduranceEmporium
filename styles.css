@@ -304,9 +304,9 @@ h3:hover {
 .carousel {
   width: 100%;
   max-width: 1200px;
-  height: 70vh;
+  height: 40vh;
   background-color: transparent;
-  padding: 20px;
+  padding: 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -318,7 +318,7 @@ h3:hover {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  padding-left: 5%;
+  padding-left: 0%;
 }
 
 .carousel-item {
@@ -330,12 +330,29 @@ h3:hover {
 }
 
 .carousel-item img {
-  width: 75%;
-  height: 75%;
-  object-fit: contain;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   display: block;
   margin-left: 0;
 }
+.carousel-caption{
+  position: absolute;
+  bottom: 10%;
+  left: 5%;
+  text-align: left;
+  background: rgba(0,0,0,0.4);
+  padding: 10px 20px;
+  border-radius: 8px;
+  color: #fff;
+  font-weight: bold;
+  max-width: 80%;
+}
+.carousel-caption h5{
+  font-size: 1.75rem;
+  margin: 0;
+}
+
 
 /* Footer */
 footer {
@@ -344,6 +361,12 @@ footer {
   text-align: center;
   padding: 10px 0;
   font-size: 14px;
+}
+/* Optional: always show captions,even on mobile*/
+@media (max-width: 768px) {
+  .carousel-caption{
+    display: block !important;
+  }
 }
 
 /* Sign In Form */
