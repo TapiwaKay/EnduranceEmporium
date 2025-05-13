@@ -307,8 +307,8 @@ h3:hover {
 .carousel {
   width: 100%;
   max-width: 1200px;
-  height: 90vh;
-  background-color:#dde7f2;
+  height: 70vh;
+  background-color:#transparent;
   padding: 20px;
   display: flex;
   align-items: center;
@@ -333,8 +333,8 @@ h3:hover {
 }
 
 .carousel-item img {
-  width: 75%;
-  height: 75%;
+  width: 95%;
+  height: 95%;
   object-fit: contain;
   display: block;
   margin-left: 0;
