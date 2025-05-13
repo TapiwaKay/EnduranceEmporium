@@ -308,7 +308,7 @@ h3:hover {
   max-width:1200px;
   height: 70vh;
   background-color:transparent;
-  padding: 10px;
+  padding: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -332,8 +332,8 @@ h3:hover {
   justify-content: flex-start;
 }
 .carousel-item img {
-  width: 60%;
-  height: 60%;
+  width: 75%;
+  height: 75%;
   object-fit: contain;
   display: block;
   margin-left: 0;
@@ -348,12 +348,7 @@ footer {
   padding: 10px 0;
   font-size: 14px;
 }
-/* Optional: always show captions,even on mobile*/
-@media (max-width: 768px) {
-  .carousel-caption{
-    display: block !important;
-  }
-}
+
 
 /* Sign In Form */
 .signin-container {
